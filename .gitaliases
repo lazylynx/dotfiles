@@ -1,0 +1,27 @@
+alias gs='git status'
+alias gd='git diff'
+alias gca='git commit --amend'
+alias gl='git log'
+alias glo='git log --oneline'
+alias grc='git rebase --continue'
+alias gp='git pull'
+alias gf='git fetch'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gaa='git add .'
+gpb () {
+    local branch=`git symbolic-ref --short HEAD`
+    read -p "pushing ${branch} OK? (y/n)   " ans
+    case "${ans}" in [yY]*) git push origin ${branch} ;; *) echo "abort." ;; esac
+}
+ga () {
+    command git add $1
+}
+gch () {
+    command git checkout $1
+}
+gchb () {
+    command git checkout -b $1
+}
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
