@@ -1,5 +1,5 @@
 set background=dark
-colorscheme hybrid_material
+colorscheme iceberg
 
 set tabstop=4
 set autoindent
@@ -15,6 +15,6 @@ set backupdir=~/.vim/bk
 if !has("gui_running")
   syntax on
   set background=dark
-  colorscheme hybrid_material
+  colorscheme iceberg
   highlight Normal ctermbg=none
 endif
