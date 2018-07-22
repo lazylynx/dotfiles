@@ -23,5 +23,3 @@ gch () {
 gchb () {
     command git checkout -b $1
 }
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/git-completion.bash
