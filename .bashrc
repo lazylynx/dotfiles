@@ -12,7 +12,7 @@ load_src $HOME/.gitaliases
 load_src /usr/local/etc/bash_completion.d/git-prompt.sh
 load_src /usr/local/etc/bash_completion.d/git-completion.bash
 
-alias rdmstr='cat /dev/urandom | base64 | fold -w 16 | head -n 1'
+alias rdmstr='cat /dev/urandom | tr -dc "[:graph:]" | fold -w 16 | head -1'
 alias ghl='ghq look `ghq list | peco`'
 
 if [ "$(uname)" == "Darwin" ]; then
