@@ -11,7 +11,7 @@ alias gba='git branch -a'
 alias gaa='git add .'
 gpb () {
     local branch=`git symbolic-ref --short HEAD`
-    read -p "pushing ${branch} OK? (y/n)   " ans
+    read "ans?pushing ${branch} OK? (y/n)  "
     case "${ans}" in [yY]*) git push origin ${branch} ;; *) echo "abort." ;; esac
 }
 ga () {

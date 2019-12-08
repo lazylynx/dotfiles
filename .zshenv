@@ -1,4 +1,4 @@
-source $HOME/.bashrc
+source $HOME/.zshrc
 
 eval "$(pyenv init -)"
 export PYENV_ROOT="$HOME/.pyenv"
