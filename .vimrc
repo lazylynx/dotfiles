@@ -1,4 +1,3 @@
-set background=dark
 colorscheme iceberg
 
 set tabstop=4
@@ -14,7 +13,6 @@ set directory=~/.vim/cache
 set backupdir=~/.vim/bk
 if !has("gui_running")
   syntax on
-  set background=dark
-  colorscheme iceberg
   highlight Normal ctermbg=none
+  colorscheme iceberg
 endif
