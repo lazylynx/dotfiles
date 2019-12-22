@@ -9,13 +9,17 @@ load_src () {
 }
 
 load_src $HOME/.gitaliases
-load_src /usr/local/etc/bash_completion.d/git-prompt.sh
-load_src /usr/local/etc/bash_completion.d/git-completion.bash
+
+
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
 
 alias rdmstr='cat /dev/urandom | tr -dc "[:graph:]" | fold -w 16 | head -1'
 alias ghl='ghq look `ghq list | peco`'
 
-if [ "$(uname)" == "Darwin" ]; then
+if [ "$(uname)" = "Darwin" ]; then
     alias sed='gsed'
     export LS_OPTIONS='--color=auto'
     eval "$(dircolors -b)"
