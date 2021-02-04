@@ -17,7 +17,7 @@ fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
 alias rdmstr='cat /dev/urandom | tr -dc "[:graph:]" | fold -w 16 | head -1'
-alias ghl='ghq look `ghq list | peco`'
+alias ghl='cd `ghq root`/`ghq list | peco`'
 
 if [ "$(uname)" = "Darwin" ]; then
     alias sed='gsed'
