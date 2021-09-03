@@ -1,4 +1,5 @@
 colorscheme iceberg
+set background=dark
 
 set tabstop=4
 set autoindent
