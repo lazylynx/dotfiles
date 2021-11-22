@@ -7,6 +7,7 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 set number
+set signcolumn=number
 map /// :%s/\v
 set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
