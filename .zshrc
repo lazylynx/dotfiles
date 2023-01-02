@@ -1,29 +1,35 @@
-export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH:$HOME/Library/Android/sdk/platform-tools/:$GOBIN
-
-
-load_src () {
-    test -e $1 && source $1
-}
-
-load_src $HOME/.gitaliases
-
-
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
-fpath=(~/.zsh $fpath)
+bindkey -v
+bindkey "^R" history-incremental-search-backward
 
 autoload -Uz compinit && compinit
+autoload -Uz vcs_info
+autoload -Uz colors && colors
 
-alias rdmstr='cat /dev/urandom | tr -dc "[:graph:]" | fold -w 16 | head -1'
+setopt prompt_subst
+setopt correct
+
+#zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+#fpath=(~/.zsh $fpath)
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{red}"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}"
+zstyle ':vcs_info:*' formats "%F{blue}%u%c%b%f"
+precmd () {
+    vcs_info
+    PROMPT="%(?:%{$fg_bold[green]%}➜:%{$fg_bold[red]%}➜) %{$fg[cyan]%}%c"
+    vcsinfo=${vcs_info_msg_0_}
+    if [[ ${vcsinfo} ]]; then
+        PROMPT=$PROMPT" %{$fg_bold[blue]%}[${vcsinfo}%{$fg_bold[blue]%}]"
+    fi
+    PROMPT=$PROMPT"%{$reset_color%} "
+}
+
 alias ghl='cd `ghq root`/`ghq list | peco`'
 
 if [ "$(uname)" = "Darwin" ]; then
-    alias sed='gsed'
-    export LS_OPTIONS='--color=auto'
-    eval "$(dircolors -b)"
-    alias ls='gls $LS_OPTIONS'
+    alias ls='ls --color'
     macvim () {
         open -a MacVim $1
     }

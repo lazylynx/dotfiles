@@ -13,11 +13,7 @@ set list
 set listchars=tab:>.,trail:_,extends:>,precedes:<,nbsp:%
 set directory=~/.vim/cache
 set backupdir=~/.vim/bk
-if !has("gui_running")
-  syntax on
-  highlight Normal ctermbg=none
-  colorscheme iceberg
-endif
+set backspace=indent,eol,start
 
 call plug#begin()
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -28,4 +24,7 @@ Plug 'mattn/vim-lsp-icons'
 
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()

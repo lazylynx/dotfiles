@@ -22,3 +22,5 @@ map :rep :'s,'es
 noremap <c-tab> :tabnext<cr>
 
 highlight LineNr guifg=#FFFFFF
+
+set laststatus=0
