@@ -30,9 +30,7 @@ alias ghl='cd `ghq root`/`ghq list | peco`'
 
 if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls --color'
-    macvim () {
-        open -a MacVim $1
-    }
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     alias pbcopy='xsel --clipboard --input'
 fi
