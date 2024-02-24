@@ -26,11 +26,19 @@ precmd () {
     PROMPT=$PROMPT"%{$reset_color%} "
 }
 
-alias ghl='cd `ghq root`/`ghq list | peco`'
+ghl () {
+    local d=$(ghq list | peco)
+    if [ "${d}" ]; then
+        cd "$(ghq root)/${d}"
+    fi
+}
 
 if [ "$(uname)" = "Darwin" ]; then
     alias ls='ls --color'
-	eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     alias pbcopy='xsel --clipboard --input'
+fi
+
+if [ $(which /opt/homebrew/bin/brew) ]; then
+     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
