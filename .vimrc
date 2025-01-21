@@ -8,7 +8,7 @@ set autoindent
 set background=dark
 set backspace=indent,eol,start
 set backupdir=~/.vim/bk
-set completeopt=menuone
+set completeopt=menuone,noselect
 set cursorline
 set directory=~/.vim/cache
 set hidden

@@ -1,0 +1,8 @@
+cursor-style = block
+shell-integration-features = no-cursor
+cursor-style-blink = false
+
+window-height = 43
+window-width = 159
+
+font-thicken = true

@@ -2,7 +2,7 @@ set browsedir=$HOME/Desktop
 set showtabline=2
 
 set background=dark
-colorscheme hybrid_material
+colorscheme iceberg
 
 set transparency=5
 set imdisable
