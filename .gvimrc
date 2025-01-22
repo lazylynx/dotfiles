@@ -24,3 +24,4 @@ noremap <c-tab> :tabnext<cr>
 highlight LineNr guifg=#FFFFFF
 
 set laststatus=0
+set guicursor=a:blinkoff0
